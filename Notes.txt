@@ -1,0 +1,31 @@
+Omege sites
+-----------------------------
+https://lifeline.omegahms.com/home/
+
+http://erp.omegahms.com/RVW/extui/demo/LaunchPanel.htm 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Shared Path
+---------------
+\\10.1.2.21
+
+BVMT
+---------------------------
+http://10.1.2.250/BVMT/RepoenCase/ReopenCaseNumber
+
+sachinc 
+caller
+qa
+
+
+
+EST date with DayTIme Saving.
+-----------------------------
+
+TimeZoneInfo nyTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+
+DateTime nyTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, nyTimeZone);
+
+if (nyTimeZone.IsDaylightSavingTime(nyTime))
+    nyTime = nyTime.AddHours(1);

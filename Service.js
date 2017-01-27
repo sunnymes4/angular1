@@ -8,7 +8,8 @@
     };
 
     // get Employee By Id
-    this.getEmployee = function (employeeID) {
+    this.getEmployee = function (employeeID)
+    {
         var response = $http({
             method: "post",
             //url: "Home/getEmployeeByNo",
@@ -51,6 +52,21 @@
         var response = $http({
             method: "post",
             url: "/Login/Login",
+            data: JSON.stringify(User),
+            dataType: "json"
+        });
+        return response;
+    }
+
+    // Get User Info For Dashboard
+    this.getUserInfo = function () {
+        return $http.get("UserInfo");
+    }
+
+    this.getMasterMenus = function (User) {
+        var response = $http({
+            method: "post",
+            url: "getMasterMenus",
             data: JSON.stringify(User),
             dataType: "json"
         });

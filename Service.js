@@ -72,4 +72,16 @@
         });
         return response;
     }
+
+    this.getChildMenus = function (ID) {
+        var response = $http({
+            method: "post",
+            url: "getChildMenus",
+            params: {
+                Id: JSON.stringify(ID)
+            },
+            dataType: "json"
+        });
+        return response;
+    }
 });

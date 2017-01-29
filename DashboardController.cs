@@ -49,10 +49,10 @@ namespace CRUDInAngularJS.Controllers
             return serializer.Serialize(rows);
         }
 
-        public string getChildMenus(User User,string MID)
+        public string getChildMenus(string MID)
         {
             DataTable dt = new DataTable();
-            dt = clsUtility.GetDataTable("Select MenuName,LinkName From tblMenu Where IsAlive='True' And Under=" + MID + " And AutoID Not In (Select MenuAutoID From tblPriviledge Where RoleAutoID=(Select RoleAutoID from tblUsers Where UserName = '" + User.Id.ToString() + "'))");
+            dt = clsUtility.GetDataTable("Select MenuName,LinkName From tblMenu Where IsAlive='True' And Under=" + MID + " And AutoID Not In (Select MenuAutoID From tblPriviledge Where RoleAutoID=(Select RoleAutoID from tblUsers Where UserName = '" + Session["LoginID"].ToString() + "'))");
             System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
             Dictionary<string, object> row;

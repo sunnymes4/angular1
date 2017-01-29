@@ -22,5 +22,15 @@
         });
     }
 
+    //To Get Child Menus
+    function getChildMenus(ID) {
+        var getData = myService.getChildMenus();
+        getData.then(function (user) {
+            $scope.ChildMenus = user.data;
+        }, function () {
+            alert('Error in getting User Info !!');
+        });
+    }
+
 
 });
